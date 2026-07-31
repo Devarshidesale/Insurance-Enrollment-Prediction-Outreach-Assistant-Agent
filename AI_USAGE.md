@@ -1,111 +1,60 @@
-# AI Usage Log: Insurance Enrollment Prediction & Outreach Assistant Agent
+# AI Usage Disclosure Statement (`AI_USAGE.md`)
 
-## Purpose of This Document
-
-This log documents how AI/LLM tooling was used to support the architecture, documentation, and validation design for the project. It is intended to provide transparency, reproducibility, and governance traceability.
+This document discloses the use of Artificial Intelligence (AI) tools and assistants during the end-to-end architecture, development, data auditing, model engineering, and agent system integration for the **Insurance Enrollment Prediction & Outreach Assistant Agent**.
 
 ---
 
-## 1) AI-Assisted Activities Performed
+## Executive Summary & Tooling Overview
 
-### 1.1 System Architecture Design Support
-AI assistance was used to:
-- Structure the end-to-end architecture from raw data ingestion through outreach agent decisions
-- Organize module boundaries (`data_prep`, `feature_engineering`, `train_model`, `agent_tools`, `agent_router`)
-- Draft flow-level representation linking model scoring to regional outreach capacity constraints
+AI tools were leveraged throughout the project lifecycle as collaborative engineering and analytical assistants to implement the logic for the project.
 
-### 1.2 Data Audit and Cleaning Strategy Formulation
-AI support was used to synthesize robust cleaning decisions for:
-- Duplicate `employee_id` conflict resolution
-- Date normalization across heterogeneous string formats
-- Categorical normalization for outreach channels
-- Sentinel reinterpretation logic for `prior_year_enrolled = 1`
-- Join integrity controls for `region` key linkage
+### AI Tooling Stack
 
-### 1.3 Compliance and Feature Governance Design
-AI assistance was used to formalize:
-- Explicit prohibition of `legacy_propensity_score`
-- Exclusion of regional target aggregates (`hist_enrollment_rate_region`)
-- Demographic exclusion checkpoint (`gender`, `marital_status`, `age`)
-- Refusal and filtering policies for agent outputs
+The primary tools utilized across phases include:
 
-### 1.4 Evaluation and Business Metric Framing
-AI support was used to define metric governance, including:
-- Baseline model comparisons (majority class and simple heuristic)
-- Core statistical metrics (AUC-ROC, Log-Loss)
-- Operational ranking metrics (Precision@K, Lift@K) bounded by `hr_outreach_capacity`
-
-### 1.5 Documentation Authoring and Review
-AI assistance was used to:
-- Draft complete project README and technical report content
-- Improve consistency of terminology across files
-- Ensure policy language is explicit and auditable
+* **GitHub Copilot:**
+* **ChatGPT (OpenAI):**
+* **Claude 3.5 Sonnet (Anthropic):**
+* **Gemini Pro (Google):**
+* **AntiGravity IDE Assistance:**
 
 ---
 
-## 2) Validation Procedures Applied to AI Outputs
+## Detailed Stage-by-Stage AI Assistance
 
-All AI-generated content was reviewed for:
-1. **Domain consistency:** alignment with insurance enrollment outreach use case
-2. **Policy correctness:** explicit treatment of leakage and demographic guardrails
-3. **Operational realism:** capacity-aware ranking emphasis
-4. **Traceability:** clear sectioning and rationale for major decisions
+### Stage 1. Data Preprocessing & Feature Engineering Assistance
 
-Additional checks performed:
-- Verification that no implementation Python code was generated
-- Verification that module files are stubs only
-- Verification that required configuration files include requested dependency and ignore entries
+#### AI Tools Employed
+* **ChatGPT**, **Gemini Pro**, **AntiGravity IDE Assistance**
+
+AI assistance during the data preparation phase was focused primarily on syntax optimization, pandas transformation efficiency, and assistance in feature engineering logic. The tools helped in standardizing dirty categorical values, parsing mixed date formats, and reinterpreting tricky sentinel flags like `prior_year_enrolled`. Additionally, AI supported the sentiment extraction from unstructured outreach notes, and out-of-fold regional aggregate target encoding ensuring clean, efficient pipeline transformations while eliminating in-place pandas bugs.
+
 
 ---
 
-## 3) Human Oversight and Decision Accountability
+### Stage 2. Model Development, Debugging & Hyperparameter Tuning
 
-AI outputs were treated as drafting support, not autonomous final decisions. Final responsibility remained with engineering oversight for:
-- Accepting or rejecting architectural recommendations
-- Ensuring compliance framing is explicit and enforceable
-- Confirming documentation completeness and enterprise appropriateness
+#### AI Tools Employed
+* **ChatGPT**, **Gemini Pro**
 
-Any future production implementation should maintain this human-in-the-loop standard for model governance, legal review, and policy approval.
+In the model engineering phase, AI tools served as diagnostic and optimization assistants to streamline XGBoost classifier training. Assistance was used to debug pipeline errors, cross checking gradient boosting parameters, and structure cross-validation workflows. The AI also provided guidance on checking the potential for data leakage across feature groups.
 
----
-
-## 4) Known Risks of AI Assistance and Mitigations
-
-### Risk: Overgeneralized guidance
-- **Mitigation:** Constrain outputs to project-specific fields and policies.
-
-### Risk: Implicit assumptions not suitable for production
-- **Mitigation:** Require explicit rationale and audit-ready wording in technical documentation.
-
-### Risk: Compliance ambiguity
-- **Mitigation:** State hard refusal rules and prohibited-feature policies in unambiguous terms.
-
-### Risk: False confidence from polished text
-- **Mitigation:** Validate against measurable checkpoints and downstream implementation requirements.
 
 ---
 
-## 5) Allowed and Disallowed AI Contribution Scope
+### Stage 3: AI Agent for Outreach Purposes
 
-### Allowed in this deliverable
-- Documentation drafting
-- Architecture structuring
-- Policy and validation framework articulation
-- Quality and consistency refinement
+#### AI Tools Employed
+* **Claude 3.5 Sonnet**, **Gemini Pro**
 
-### Explicitly disallowed in this deliverable
-- Generation of Python implementation code
-- Generation of executable model training or inference scripts
-- Injection of synthetic experimental results presented as factual outcomes
+For the agentic outreach layer, AI tools scaffolded the core system architecture, and state-routing mechanics based on functional specifications.
+Human involvement was maintained at the supervisory level by supplying the initial project requirements, defining tool capabilities, and providing monitoring. The AI implemented deterministic tool interfaces (`predict_enrollment`, `rank_outreach_candidates`, `lookup_region_profile`, and `explain_prediction`) alongside hard refusal guardrails to reject leaky predictors and censor protected attributes from natural-language explanations.
+
 
 ---
+### AI Agent for Documentation purposes
 
-## 6) Reproducibility Notes
+#### AI Tools Employed
+* **Claude 3.5 Sonnet**, **Gemini Pro**
 
-To reproduce this documentation workflow:
-1. Start from the defined project problem statement and governance constraints.
-2. Draft architecture and compliance checkpoints before implementation details.
-3. Validate that all required markdown/config files are complete and non-placeholder.
-4. Confirm module files remain stubs until implementation phase begins.
-
-This process ensures separation between design governance artifacts and future coding execution.
+For the documentation and reporting purposes, AI tools were used to modify the technical report and present the project findings.

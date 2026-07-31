@@ -142,21 +142,3 @@ python -m src.agent_router
 
 ---
 
-## 6) Governance and Compliance Summary
-
-The architecture applies two mandatory controls:
-
-1. **Target Leakage Refusal**
-   - The system must refuse direct or indirect use of `legacy_propensity_score` and prohibited regional target aggregates.
-
-2. **Protected Attribute Suppression in Explanations**
-   - Agent explanations must not cite or imply protected demographic attributes (`gender`, `marital_status`, `age`).
-
-For full policy rationale and implementation guidance, see `report.md`.
-
----
-
-## 7) Documentation Index
-
-- `report.md`: end-to-end technical and compliance design
-- `AI_USAGE.md`: transparent log of AI-assisted architecture work and validation methodology
